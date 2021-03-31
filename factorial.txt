@@ -1,0 +1,14 @@
+: get_arg print read cast_int ;
+
+// store n
+"Give me $n" get_arg "n" store
+// store counter
+"n" load 1 - "counter" store
+// store a pointer to the beginning of the loop
+get_pointer 4 + "pointer" store
+// loop
+"n" load "counter" load * "n" store
+"counter" load 1 - "counter" store
+// condition
+"counter" load 0 =="pointer" load get_pointer 4 +  if jmp
+"n! =" print "n" load print
